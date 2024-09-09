@@ -22,12 +22,35 @@ Return :
  False : L'utilisateur a donné une valeur à convertir
 """
 
-print("ce programme permet des convertion d'unites")
-print("1-pouces vers centimetres")
-print("2-centimetres vers pouces")
-choice= input("Entrez votre choix (1 ou 2): ")
-if choice == "1":
-   valeur_str = input("Convertion pouces -> CM. donnez la valeur en pouces : ")
-   valeur_float = float(valeur_str)
-   valeur_convertie =  valeur_float * 2.54
-   print(f"Resultat de la convertion: {valeur_float} pouces = {valeur_convertie} cm")
+def effectuer_convertion(unit1: str, unit2: str, facteur: float):
+    valeur_str = input(f"Convertion {unit1} -> {unit2}. donnez la valeur en {unit1} (ou 'q' pour quitter) : ")
+    if valeur_str == "q":
+            return True
+    try:
+        valeur_float = float(valeur_str)
+    except ValueError:
+        print("ERREUR: vous devez rentrez une valeur numerique")
+        print("Utilisez les point pour les nombre ")
+        return effectuer_convertion (unit1, unit2, facteur)
+     
+    valeur_convertie =  round(valeur_float * facteur, 2)
+    print(f"Resultat de la convertion: {valeur_float} {unit1} = {valeur_convertie} {unit2}")
+
+while True:    
+    print("ce programme permet des convertion d'unites")
+    print("1-pouces vers centimetres")
+    print("2-centimetres vers pouces")
+    choice= input("Entrez votre choix (1 ou 2): ")
+    if choice == "1" or choice == "2":
+        break
+    print("ERREUR : Vous devez choisir 1 ou 2")
+
+
+while True:
+    if choice == "1":
+        if effectuer_convertion("pouces", "cm", 2.54):
+            break
+    if choice == "2":
+        if effectuer_convertion("cm", "pouces", 0.394):
+            break
+
