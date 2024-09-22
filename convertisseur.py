@@ -36,7 +36,8 @@ def effectuer_convertion(unit1: str, unit2: str, facteur: float):
     valeur_convertie =  round(valeur_float * facteur, 2)
     print(f"Resultat de la convertion: {valeur_float} {unit1} = {valeur_convertie} {unit2}")
 
-while True:    
+while True:
+    #menu choix de la convertion    
     print("ce programme permet des convertion d'unites")
     print("1-pouces vers centimetres")
     print("2-centimetres vers pouces")
