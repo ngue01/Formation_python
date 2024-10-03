@@ -48,12 +48,7 @@ print("le nom de la personne est,",nom,"et son age est de",age,) """
 information_personne("kevin") """
 
 #utilisation du return 
-""" def est_mageur(age):
-    # Vrai ou faux
-    # si l'age >= 18 =>>true sinon false
-    if age >=18:
-        return True
-    return False
+""" 
 
 
 
@@ -72,10 +67,19 @@ print("Fin du programme") """
     ->afficher_infos_personne(numero_personne, nom,age)
         ->est majeur() """
 
+def est_mageur(age):
+    # Vrai ou faux
+    # si l'age >= 18 =>>true sinon false
+    if age >=18:
+        return True
+    return False
+
+
+
 def recuperer_info_personne(numero_personne):
     nom_personne=input("Nom  de la personne "+ str(numero_personne) +": ")
     age_personne=input("Age de la personne  de la personne "+ str(numero_personne) + ": ")
-    return nom_personne, age_personne #retourner c'est valeur pour la fonction recuperer_et_afficher_info_personne
+    return nom_personne, int(age_personne) #retourner c'est valeur pour la fonction recuperer_et_afficher_info_personne
     
 #fonction pour afficharge
 def afficher_infos_personne(numero_personne, nom, age=0):
@@ -90,6 +94,10 @@ def afficher_infos_personne(numero_personne, nom, age=0):
 def recuperer_et_afficher_info_personne(numero_personne):
     nom, age = recuperer_info_personne(numero_personne)
     afficher_infos_personne(numero_personne, nom, age)
+    if est_mageur(age):
+        print("Il est majeur")
+    else:
+        print("Il est mineur")
     
 
 nbr_personne=2
@@ -97,6 +105,8 @@ nbr_personne=2
 
 for i in range(nbr_personne):
     recuperer_et_afficher_info_personne(i+1)
+    
+afficher_infos_personne("007","James", 40) #retouner des valeur d'age de types Int
     
 
 
